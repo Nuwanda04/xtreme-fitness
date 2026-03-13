@@ -35,3 +35,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+mcd_web_xtremefitness_server/
+xtreme_fitness_materials/
