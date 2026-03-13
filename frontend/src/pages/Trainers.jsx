@@ -6,7 +6,7 @@ const Trainers = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[34vh] min-h-[220px] md:h-[40vh] md:min-h-[300px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/headers/employeesHeader.jpg"
@@ -14,9 +14,10 @@ const Trainers = () => {
             className="w-full h-full object-cover"
             onError={(e) => { e.target.style.display = 'none'; }}
           />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
-        <div className="relative z-10 text-center text-white">
-          <h1 className="font-teko text-[70px] md:text-[140px] font-bold uppercase tracking-wider leading-none">
+        <div className="relative z-10 text-center text-white pt-10 md:pt-12">
+          <h1 className="font-teko text-[56px] md:text-[140px] font-bold uppercase tracking-[0.04em] leading-none">
             TR&#198;NERE
           </h1>
         </div>

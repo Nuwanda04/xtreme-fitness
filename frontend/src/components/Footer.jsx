@@ -3,105 +3,153 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0f0f0f] text-white pt-20 pb-10">
-      <div className="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-black text-white relative overflow-hidden pt-10 md:pt-12">
+      <img
+        src="/icons/footer_left_icon.png"
+        alt=""
+        className="hidden md:block absolute -left-6 top-1/2 -translate-y-1/2 w-[230px] opacity-55 mix-blend-screen brightness-125 contrast-125 drop-shadow-[0_0_14px_rgba(255,255,255,0.22)] pointer-events-none"
+      />
+      <img
+        src="/icons/footer_right_icon.png"
+        alt=""
+        className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 w-[230px] opacity-55 mix-blend-screen brightness-125 contrast-125 drop-shadow-[0_0_14px_rgba(255,255,255,0.22)] pointer-events-none"
+      />
 
-        {/* Column 1: Logo & Name */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <Link to="/" className="flex flex-col items-center md:items-start group mb-6">
-            <img src="/icons/logo.png" alt="Logo" className="w-16 h-16 object-contain mb-2" onError={(e) => {e.target.style.display='none'}} />
-            <div className="flex items-baseline">
-              <span className="font-teko tracking-wider text-2xl font-bold leading-none text-white transition-opacity group-hover:opacity-80">XTREME</span>
-              <span className="font-teko tracking-wider text-2xl font-bold leading-none text-xfitorange ml-1 transition-opacity group-hover:opacity-80">FITNESS</span>
-            </div>
+      <div className="container mx-auto px-6 max-w-[1160px] grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_1fr] gap-10 md:gap-14 pb-12">
+        <div className="text-center md:text-left">
+          <Link
+            to="/"
+            className="inline-flex flex-col items-center md:items-start"
+          >
+            <img
+              src="/icons/logo.png"
+              alt="Xtreme Fitness"
+              className="w-[162px] h-auto mb-2 object-contain"
+            />
           </Link>
-          <div className="flex gap-4 mt-2">
-            <a href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:bg-xfitorange hover:text-white hover:border-xfitorange transition-all duration-300">
+          <p className="font-ubuntu text-[#8e8e8e] text-[13px] leading-[1.35] mb-5 max-w-[200px] mx-auto md:mx-0">
+            Hos os handler træning om glæde, kvalitet og resultater
+          </p>
+          <div className="flex items-center justify-center md:justify-start gap-3">
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-[#3b3b3b] flex items-center justify-center text-white hover:bg-[#525252] transition-colors"
+            >
               <FaFacebookF size={16} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:bg-xfitorange hover:text-white hover:border-xfitorange transition-all duration-300">
-              <FaYoutube size={16} />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:bg-xfitorange hover:text-white hover:border-xfitorange transition-all duration-300">
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-[#3b3b3b] flex items-center justify-center text-white hover:bg-[#525252] transition-colors"
+            >
               <FaTwitter size={16} />
             </a>
+            <a
+              href="#"
+              className="w-11 h-11 rounded-full bg-[#3b3b3b] flex items-center justify-center text-white hover:bg-[#525252] transition-colors"
+            >
+              <FaYoutube size={16} />
+            </a>
           </div>
         </div>
 
-        {/* Column 2: Opening Hours */}
-        <div className="text-center md:text-left lg:ml-8">
-          <h3 className="font-teko text-2xl uppercase font-bold text-white mb-6">ÅBNINGSTIDER</h3>
-          <ul className="font-ubuntu text-sm space-y-3 text-gray-400">
-            <li className="flex justify-between md:justify-start md:gap-8 border-b border-gray-800 pb-2">
-              <span className="w-20 text-left">Mandag - Fredag</span>
-              <span className="text-white">05:30 - 24:00</span>
+        <div className="hidden md:block text-center md:text-left">
+          <h3 className="font-teko text-[42px] uppercase leading-none mb-5 whitespace-nowrap">
+            ÅBNINGSTIDER
+          </h3>
+          <div className="font-ubuntu text-[14px] leading-7 text-[#8f8f8f] space-y-1">
+            <div className="mb-1">
+              <div className="text-white">Mandag - fredag</div>
+              <div>12.00 - 14.00</div>
+            </div>
+            <div className="mb-1">
+              <div className="text-white">Lørdag</div>
+              <div>17.30 - 00.00</div>
+            </div>
+            <div>
+              <div className="text-white">Søndag</div>
+              <div>17.30 - 00.00</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden md:block text-center md:text-left">
+          <h3 className="font-teko text-[42px] uppercase leading-none mb-5">
+            HURTIGE
+            <br />
+            LINKS
+          </h3>
+          <ul className="font-ubuntu text-[14px] text-[#8f8f8f] space-y-2">
+            <li>
+              <Link
+                to="/om-os"
+                className="inline-flex items-center gap-3 hover:text-white transition-colors"
+              >
+                <span className="text-white text-[10px]">▶</span>Om
+              </Link>
             </li>
-            <li className="flex justify-between md:justify-start md:gap-8 border-b border-gray-800 pb-2">
-              <span className="w-20 text-left">Lørdag - Søndag</span>
-              <span className="text-white">06:00 - 22:00</span>
+            <li>
+              <Link
+                to="/tjenester"
+                className="inline-flex items-center gap-3 hover:text-white transition-colors"
+              >
+                <span className="text-white text-[10px]">▶</span>Tjenester
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/traenere"
+                className="inline-flex items-center gap-3 hover:text-white transition-colors"
+              >
+                <span className="text-white text-[10px]">▶</span>Trænere
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/priser"
+                className="inline-flex items-center gap-3 hover:text-white transition-colors"
+              >
+                <span className="text-white text-[10px]">▶</span>Priser
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/kontakt"
+                className="inline-flex items-center gap-3 hover:text-white transition-colors"
+              >
+                <span className="text-white text-[10px]">▶</span>Kontakt
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Column 3: Quick Links */}
-        <div className="text-center md:text-left lg:ml-12">
-          <h3 className="font-teko text-2xl uppercase font-bold text-white mb-6">INFORMATION</h3>
-          <ul className="font-ubuntu text-sm space-y-4 text-gray-400 flex flex-col items-center md:items-start">
-            <Link to="/om-os" className="hover:text-xfitorange transition-colors relative group w-max">
-              Om os
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-xfitorange transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link to="/tjenester" className="hover:text-xfitorange transition-colors relative group w-max">
-              Tjenester
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-xfitorange transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link to="/priser" className="hover:text-xfitorange transition-colors relative group w-max">
-              Priser
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-xfitorange transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link to="/kontakt" className="hover:text-xfitorange transition-colors relative group w-max">
-              Kontakt
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-xfitorange transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          </ul>
-        </div>
-
-        {/* Column 4: Contact */}
         <div className="text-center md:text-left">
-          <h3 className="font-teko text-2xl uppercase font-bold text-white mb-6">KONTAKT OS</h3>
-          <ul className="font-ubuntu text-sm space-y-4 text-gray-400">
-            <li className="flex flex-col md:flex-row md:items-start gap-2 items-center">
-              <span className="text-xfitorange mt-1 hidden md:block">📍</span>
-              <span className="hover:text-white transition-colors cursor-pointer">
-                Nygade 24, st. t.h<br/>8600 Silkeborg
-              </span>
-            </li>
-            <li className="flex flex-col md:flex-row md:items-center gap-2 items-center border-t border-gray-800/50 pt-3">
-              <span className="text-xfitorange hidden md:block">📞</span>
-              <a href="tel:+4520304050" className="hover:text-white transition-colors">
-                +45 20 30 40 50
-              </a>
-            </li>
-            <li className="flex flex-col md:flex-row md:items-center gap-2 items-center border-t border-gray-800/50 pt-3">
-              <span className="text-xfitorange hidden md:block">✉️</span>
-              <a href="mailto:info@xtremefitness.dk" className="hover:text-white transition-colors">
-                info@xtremefitness.dk
-              </a>
-            </li>
-          </ul>
+          <h3 className="font-teko text-[42px] uppercase leading-none mb-5">
+            KONTAKT
+            <br />
+            OS
+          </h3>
+          <div className="font-ubuntu text-[14px] leading-7 text-[#8f8f8f] space-y-1">
+            <div className="mb-1">
+              <div className="text-white">Adresse:</div>
+              <div>Nørregade 42, 9000 Aalborg</div>
+            </div>
+            <div className="mb-1">
+              <div className="text-white">Email:</div>
+              <div>info@xtremefitness.dk</div>
+            </div>
+            <div>
+              <div className="text-white">Telefon:</div>
+              <div>+ 45 99751642</div>
+            </div>
+          </div>
         </div>
-
       </div>
 
-      {/* Copyright Line */}
-      <div className="container mx-auto px-6 max-w-7xl mt-16 pt-8 border-t border-gray-800/80">
-        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-ubuntu">
-          <p className="mb-4 md:mb-0">&copy; {new Date().getFullYear()} XTREME FITNESS. ALL RIGHTS RESERVED.</p>
-          <div className="flex gap-4">
-            <Link to="/privacy" className="hover:text-white transition-colors">PRIVACY POLICY</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">TERMS OF SERVICE</Link>
-          </div>
-        </div>
+      <div className="border-t border-[#2b2b2b] py-7">
+        <p className="font-ubuntu text-center text-[12px] text-[#777] tracking-[0.01em]">
+          Copyright {new Date().getFullYear()} xtremefitness.dk - All Rights
+          Reserved
+        </p>
       </div>
     </footer>
   );

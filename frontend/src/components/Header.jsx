@@ -8,12 +8,30 @@ const navItems = [
   { name: "Trænere", path: "/traenere" },
   { name: "Priser", path: "/priser" },
   { name: "Om os", path: "/om-os" },
+  { name: "Kontakt", path: "/kontakt" },
 ];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  let authPath = "/login";
+  let authLabel = "Log ind";
+
+  try {
+    const rawUser = localStorage.getItem("userData");
+    if (rawUser) {
+      const parsedUser = JSON.parse(rawUser);
+      if (parsedUser?.role === "admin") {
+        authPath = "/backoffice";
+        authLabel = "Backoffice";
+      }
+    }
+  } catch {
+    authPath = "/login";
+    authLabel = "Log ind";
+  }
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -35,19 +53,23 @@ const Header = () => {
     <>
       <header
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-xfitgray/95 backdrop-blur-sm shadow-md py-2" : "bg-transparent py-4"
+          isScrolled
+            ? "bg-xfitgray/95 backdrop-blur-sm shadow-md py-2"
+            : "bg-transparent py-4"
         } text-white`}
       >
-        <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-
+        <div className="w-full px-3 md:px-8 lg:px-12 flex items-center justify-between">
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="flex flex-col items-center">
-              <img src="/icons/logo.png" alt="Xtreme Fitness Logo" className="w-10 h-10 object-contain" onError={(e) => {e.target.style.display='none'}} />
-              <div className="flex items-baseline mt-1">
-                <span className="font-teko tracking-wider text-xl font-bold leading-none text-white">XTREME</span>
-                <span className="font-teko tracking-wider text-xl font-bold leading-none text-xfitorange ml-1">FITNESS</span>
-              </div>
+              <img
+                src="/icons/logo.png"
+                alt="Xtreme Fitness Logo"
+                className="w-[100px] md:w-[132px] h-auto object-contain"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                }}
+              />
             </div>
           </Link>
 
@@ -58,17 +80,19 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 className={`font-ubuntu text-base tracking-wide uppercase transition-colors hover:text-xfitorange ${
-                  location.pathname === item.path ? "text-xfitorange" : "text-white"
+                  location.pathname === item.path
+                    ? "text-xfitorange"
+                    : "text-white"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
             <Link
-              to="/login"
+              to={authPath}
               className="ml-4 font-ubuntu text-base tracking-wide uppercase text-white hover:text-xfitorange transition-colors"
             >
-              Log ind
+              {authLabel}
             </Link>
           </nav>
 
@@ -108,11 +132,11 @@ const Header = () => {
             ))}
             <li>
               <Link
-                to="/login"
+                to={authPath}
                 onClick={handleDrawerToggle}
                 className="font-ubuntu text-2xl tracking-wide font-medium text-white hover:text-xfitorange transition-colors"
               >
-                Log ind
+                {authLabel}
               </Link>
             </li>
           </ul>
